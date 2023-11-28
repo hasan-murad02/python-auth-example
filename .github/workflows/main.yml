@@ -23,5 +23,5 @@ jobs:
       run: |
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
         docker buildx create --use
-        docker buildx build --platform linux/amd64,linux/arm64 -t DOCKER_USERNAME/my-flask-app:latest .
-        docker push DOCKER_USERNAME/my-flask-app:latest
+        docker buildx build --platform linux/amd64,linux/arm64 -t hasanmurad0102/my-flask-app:latest .
+        docker push hasanmurad0102/my-flask-app:latest
