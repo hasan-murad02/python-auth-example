@@ -1,17 +1,14 @@
-FROM python:3.10.13-alpine
+FROM python:3.12
 
-LABEL name="Python Application" \   
-     maintainer="Ali Kahoot <kahoot.ali@outlook.com>" \
-     summary="A Sample Python application"
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY . /app
 
-RUN pip install -r 'requirements.txt'
+RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8080
+EXPOSE 5000
 
-COPY . ./
-
-CMD [ "python", "./app.py" ]
+CMD ["flask", "run"]
